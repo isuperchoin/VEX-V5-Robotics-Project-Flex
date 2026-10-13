@@ -10,6 +10,6 @@ enum class LiftState {
 };
 
 void lift_init();
-void lift_set_state(LiftState s);
-void lift_task_fn();
+// void lift_set_state(LiftState s);
+// void lift_task_fn();
 void lift_opcontrol();

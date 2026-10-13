@@ -265,10 +265,13 @@ void opcontrol() {
 
     // . . .
     lift_opcontrol();
+    claw_opcontrol();
     // . . .
-    
+
     printf("Lift: %.1f\n", arm.get_position());
+    printf("Claw: %.1f\n", claw.get_position());
 
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }
 }
+x
