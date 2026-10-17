@@ -10,8 +10,8 @@
 // Chassis constructor
 ez::Drive chassis(
     // These are your drive motors, the first motor is used for sensing!
-    {1, 2, 3},     // Left Chassis Ports (negative port will reverse it!)
-    {-4, -5, -6},  // Right Chassis Ports (negative port will reverse it!)
+    {1, -2, 3},     // Left Chassis Ports (negative port will reverse it!)
+    {-4, 5, -6},  // Right Chassis Ports (negative port will reverse it!)
 
     7,      // IMU Port
     2.75,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
@@ -253,6 +253,8 @@ void opcontrol() {
   chassis.pid_tuner_increment_d_set(1.0);
   chassis.pid_tuner_increment_start_i_set(1.0);
 
+  int print_counter = 0;
+
   while (true) {
     // Gives you some extras to make EZ-Template ezier
     ez_template_extras();
@@ -268,10 +270,12 @@ void opcontrol() {
     claw_opcontrol();
     // . . .
 
-    printf("Lift: %.1f\n", arm.get_position());
-    printf("Claw: %.1f\n", claw.get_position());
+    print_counter++;
+    if (print_counter % 20 == 0) {
+      printf("Lift: %.1f  Claw: %.1f\n", lift_angle(), claw.get_position());
+    }
 
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }
 }
-x
+

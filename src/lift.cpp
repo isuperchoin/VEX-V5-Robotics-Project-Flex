@@ -2,6 +2,8 @@
 
 pros::MotorGroup arm({8,-9});
 
+const double LIFT_GEAR_RATIO = 5.0; //Tune it
+
 void lift_init() {
     arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
     arm.set_encoder_units(pros::E_MOTOR_ENCODER_DEGREES);
@@ -16,4 +18,8 @@ void lift_opcontrol() {
     } else {
         arm.move_velocity(0);
     }
+}
+
+double lift_angle() {
+    return arm.get_position() / LIFT_GEAR_RATIO;
 }
