@@ -13,7 +13,7 @@ ez::Drive chassis(
     {-1, 2, -3},     // Left Chassis Ports (negative port will reverse it!)
     {4, -5, 6},  // Right Chassis Ports (negative port will reverse it!)
 
-    7,      // IMU Port
+    15,      // IMU Port
     2.75,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
     450);   // Wheel RPM = cartridge * (motor gear / wheel gear)
 
@@ -271,10 +271,14 @@ void opcontrol() {
     claw_opcontrol();
     // . . .
 
-    print_counter++;
-    if (print_counter % 20 == 0) {
-      // printf("Lift: %.1f  Claw: %.1f\n", lift_angle(), claw_angle());
-    }
+    
+    // print_counter++;
+    // if (print_counter % 20 == 0) {
+    //   // printf("Lift: %.1f  Claw: %.1f\n", lift_angle(), claw_angle());
+    //   printf("Heading: %.1f  Rotation: %.1f\n", chassis.imu.get_heading(), chassis.imu.get_rotation());
+    // }
+
+    
 
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }

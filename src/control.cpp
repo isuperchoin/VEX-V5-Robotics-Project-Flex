@@ -36,7 +36,7 @@ void opcontrol_turn_and_go() {
 
     } else if (stick1 != 0 || stick2 != 0) {
         //Either stick is forward and the other is backward or neutral
-        int turning_power = srd::clamp((stick1 - stick2), MAX_SPEED *-1, MAX_SPEED);
+        int turning_power = std::clamp((stick1 - stick2), MAX_SPEED *-1, MAX_SPEED);
         chassis.drive_set(turning_power, turning_power * -1);
 
     } else {
