@@ -3,3 +3,4 @@
 
 double prev;
 double curr;
+double error;

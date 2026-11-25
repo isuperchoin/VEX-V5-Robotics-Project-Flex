@@ -271,7 +271,7 @@ void opcontrol() {
     claw_opcontrol();
     // . . .
 
-    
+    print_data();
     // print_counter++;
     // if (print_counter % 20 == 0) {
     //   // printf("Lift: %.1f  Claw: %.1f\n", lift_angle(), claw_angle());
