@@ -1,6 +1,9 @@
 #pragma once
 #include "main.h"
 
-double prev;
-double curr;
-double error;
+extern double prev_angle;
+extern double curr;
+extern double error;
+
+double _process_data();
+void print_data();

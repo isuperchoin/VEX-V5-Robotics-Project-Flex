@@ -1,10 +1,12 @@
 #include "data_collection.hpp"
-curr = 360.0;
+double curr = 360.0;
+double prev_angle;
+double error;
 
-void _process_data(){
-    prev = curr;
+double _process_data(){
+    prev_angle = curr;
     curr = chassis.imu.get_rotation();
-    error = std::abs(curr - prev -360.0);
+    error = curr - prev_angle -360.0;
     if (error > 180){
         return 360.0 - error;
     }
